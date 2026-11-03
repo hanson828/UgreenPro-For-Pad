@@ -1,4 +1,4 @@
-# 绿联云平板端 · UGREEN Cloud Tablet Shell
+# UgreenPro-For-Pad · 绿联云平板端
 
 把一个安卓平板变成绿联云（UGOS Pro）的「原生」客户端：里面是绿联云自己的网页端，
 外面补上平板浏览器做不到的登录记忆、应用锁、指纹解锁、上传和下载。
@@ -48,6 +48,9 @@ flutter build apk --release
 - `pubspec.yaml` 里用 `dependency_overrides` 把 `path_provider_android` 钉在纯 Java 实现的 `2.2.23`：2.3.x 改用 JNI/CMake，需要完整 NDK 才能构建，而本项目在 Android 上并不使用 `path_provider` 的数据目录。
 - release 构建目前**用 debug keystore 签名**（Flutter 模板默认行为）。要正式分发请自建 keystore 并配 `android/key.properties`，否则换签名后无法覆盖安装。
 - 仓库里带了 Gradle wrapper，克隆后不需要 `flutter create` 重新生成。
+- 项目名是 **UgreenPro-For-Pad**，但 Dart 包名（`ugreen_cloud_shell`）和 Android
+  `applicationId`（`com.ugreencloud.ugreen_cloud_shell`）保持原样：Dart 包名不允许大写，
+  改 `applicationId` 会变成另一个 App、和已发布 APK 的安装标识不再匹配。改名只影响仓库名与文档。
 
 ## 上手
 
@@ -107,8 +110,8 @@ docs/ARCHITECTURE.md           桥接协议与几个关键取舍的说明
 
 ## English
 
-A small Android tablet shell for the UGREEN NAS (UGOS Pro) web UI. It wraps the vendor's
-own web app in a WebView and adds what a tablet browser can't do well: a redesigned login
+UgreenPro-For-Pad is a small Android tablet shell for the UGREEN NAS (UGOS Pro) web UI. It
+wraps the vendor's own web app in a WebView and adds what a tablet browser can't do well: a
 screen with per-NAS account memory (Android Keystore encrypted), a desktop-Chrome UA plus a
 virtual viewport so UGOS renders its desktop layout, an app lock (PIN / pattern / fingerprint),
 a synthesized context-menu bridge so uploading works without a right click, and a download
