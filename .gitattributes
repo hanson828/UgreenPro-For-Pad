@@ -1,0 +1,17 @@
+* text=auto
+
+*.dart text
+*.kt text
+*.kts text
+*.yaml text
+*.yml text
+*.md text eol=lf
+LICENSE text eol=lf
+
+# 构建脚本的行尾必须固定，否则在别的平台上跑不起来
+android/gradlew text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
+
+*.png binary
+*.jar binary
